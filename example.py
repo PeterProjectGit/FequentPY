@@ -1,3 +1,18 @@
+def isitPerfect(n):
+    if n ==1 or n ==0:
+        return False
+    else: 
+        divNumbers = [1]
+        for i in range(2,n):
+                if n % i == 0:
+                    divNumbers.append(i)
+                    return sum(divNumbers) == n
+
+
+
+
+
+
 
 def randomGenerator(s, e, a):
     import random
@@ -20,6 +35,7 @@ def makeNumber(text):
             print("Unexpected value")
 
 ###############################################
+#main
 startMessage = "Startvalue: "
 
 endMessage = "Endvalue: "
@@ -28,6 +44,21 @@ start = makeNumber(startMessage)
 stop = makeNumber(endMessage)
 amount = makeNumber(amountInput)
 
+perfectNumfreq = {}
+perfectNumList = []
+randomNumbers = randomGenerator(start,stop,amount)
+for num in randomNumbers:
+    if isitPerfect(num):
+        perfectNumList.append(num)
 
-print(randomGenerator(start,stop,amount))
 
+
+ ###       
+for i in perfectNumList:
+    if i in perfectNumfreq.keys():
+        perfectNumfreq[num] +=1
+    else: 
+        perfectNumfreq[num] = 1
+
+for key in perfectNumfreq.keys():
+    print(f"{key}: {perfectNumList}")
