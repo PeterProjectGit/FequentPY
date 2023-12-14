@@ -9,12 +9,12 @@ def randomGenerator(s, e, a):
 
 #felhasználó által megadott intervallumban generálni felhasználó álltal megadott számot, hány tökéletes szám van az intervallumban osztói összege: szám
 def makeNumber(text):
-    #isCorrect = False
-    while True: #not isCorrect:
+    isCorrect = False
+    while not isCorrect:
         n = input(text)
         try:
             n= int(n)
-            #isCorrect = True
+            isCorrect = True
             return n
         except ValueError:
             print("Unexpected value")
